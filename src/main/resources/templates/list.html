@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/add">Add a flight</a><br/>
+<table>
+    <tr>
+        <th>Airines</th>
+        <th>Departure</th>
+        <th>Destination</th>
+        <th>Date</th>
+        <th>Number</th>
+    </tr>
+    <tr th:each="flight : ${flights}">
+        <td th:text="${flight.airline}"></td>
+        <td th:text="${flight.departure}"></td>
+        <td th:text="${flight.destination}"></td>
+        <td th:text="${flight.date}"></td>
+        <td th:text="${flight.number}"></td>
+        <td>
+            <a th:href="@{/update/{id}(id=${flight.id})}">Update</a> -
+            <a th:href="@{/detail/{id}(id=${flight.id})}">Details</a> -
+            <a th:href="@{/detail/{id}(id=${flight.id})}">Delete</a>
+
+
+        </td></tr>
+
+</table>
+</body>
+</html>
